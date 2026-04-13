@@ -89,6 +89,7 @@ npm run build
 
 🌐 Live Demo
 
+https://signal-field.vercel.app/
 
 ⚡ Performance Notes
 - Uses InstancedMesh to render thousands of objects efficiently
@@ -117,6 +118,7 @@ Potential bottlenecks:
 - Balancing visual fidelity with performance
 
 👨‍💻 Author
+
 Built as part of my transition into:
 - WebGL Engineering
 - Creative Development
