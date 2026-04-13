@@ -1,15 +1,14 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signal Field</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
+    />
     <style>
-      /*
-      Reset everything. The canvas IS the page.
-      No scrollbars, no margins, no surprises.
-    */
       *,
       *::before,
       *::after {
@@ -20,13 +19,14 @@
 
       html,
       body {
-        overflow: hidden;
         background: #000;
         color: #fff;
         font-family:
           system-ui,
           -apple-system,
           sans-serif;
+        /* No overflow:hidden — ScrollSystem needs the page to be scrollable.
+         The canvas is position:fixed so it never moves regardless of scroll. */
       }
 
       canvas {
@@ -34,6 +34,14 @@
         position: fixed;
         top: 0;
         left: 0;
+        /* Fixed canvas stays in place while the invisible spacer
+         scrolls behind it. This is the standard WebGL scroll pattern. */
+        z-index: 1;
+      }
+
+      /* Ensure GUI and stats render above the canvas */
+      .lil-gui {
+        z-index: 10 !important;
       }
     </style>
   </head>
